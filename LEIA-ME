@@ -1,0 +1,53 @@
+Minicurso: Desvendando o Uso de Contadores de Hardware para Otimizar Aplicações de Inteligência Artificial
+
+Objetivo, utilzar contadores de hardware para analisar e otimizar o desempenho de uma aplicação de IA
+
+Pasta exercícios contem o programa de backpropagation que precisam ser otimizados. Seções específicas deles devem ser otimizadas.
+Pasta resolvidos contem o programa de backpropagation com as otimizações já aplicadas para comparação e verificação.
+
+Passo a passo dos exercícios:
+
+1 - baixar a chave: wget -O ./chave https://cutt.ly/6cNg2FC && chmod 700 chave
+2 - acesso remoto: ssh -i chave workshop@gppd-hpc.inf.ufrgs.br
+3 - cp -r ~/minicurso ~/seu_nome
+
+OBS.: A qualquer momento durante os exercicios, sinta-se a vontade em utilizar os problemas já resolvidos que se encontram na pasta resolvidos/
+
+NEC:
+1 - binários: export PATH=/opt/nec/ve/bin:$PATH
+        * Analise 1
+2 - pasta aplicacao original: cd og-nec/
+3 - compilar e executar: sbatch test.batch
+4 - analisar com ftrace: ftrace -f ftrace.out
+5 - abrir a aplicação no editor: nano backprop.c
+6 - encontrar função problema: ctrl + w alloc_1d
+        * Otimização 2
+7 - ir para a pasta de exercicios: cd ../exercicios/otm1-nec
+8 - abrir backprop: nano backprop.c
+9 - será otimizada a regiao do codigo entre a linha 158 e 162 (substituir alocacao de memoria 2d em 1d, ou seja contigua): ctrl + w bpnn_internal_create
+10 - executar otimização: sbatch nec.batch
+11 - analise: ftrace -f ftrace.out
+        * Analise 2
+12 - utiliza-se a analise do passo 11
+13 - abrir aplicação: nano backprop.c
+14 - navegar a regiao problema: ctrl + w bpnn_read
+        * Otimização 2
+15 - mudar para a pasta do segundo exercicio: cd ../otm2-nec
+16 - abrir a aplicação a ser otimizada: nano backprop.c
+17 - regiao a ser otimizada: ctrl + w bpnn_read
+18 - será otimizada a regiao do codigo entre a linha x e y (substituir o modo de leitura do arquivo, removendo o uso de fastcopy, substituindo por uma forma mais direta)
+19 - executar otimização: sbatch nec.batch
+20 - analise: ftrace -f ftrace.out
+
+
+Intel: Com a Intel não temos a necessidade de fazer os exercicios (porém eles estão disponívies)
+
+1 - pasta aplicacao original: cd og-intel/
+2 - compilação e execução: sbatch test.batch
+3 - analise: cat output.txt
+4 - pasta aplicacao otimizacao 1 resolvida: cd resolvidos/otm1-intel
+5 - compilação e execução: sbatch test.batch
+6 - analise: cat output.txt
+7 - pasta aplicação otimização 2 resolvia: cd resolvidos/otm2-intel
+8 - compilação e execução: sbatch test.batch
+9 - analise: cat output.txt

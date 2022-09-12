@@ -1,0 +1,21 @@
+Random number generator seed: 7
+Reading '/scratch/fpmjunior/2_26.nn'
+'/scratch/fpmjunior/2_26.nn' contains a 67108864x16x1 network
+Reading input weights...Done
+Reading hidden weights...Done
+Input layer size : 67108864
+Starting training kernel
+Performing CPU computation
+Training done
+
+ Performance counter stats for './backprop 67108864':
+
+    12,056,625,702      L1-dcache-loads                                             
+     1,866,360,957      L1-dcache-load-misses     #   15.48% of all L1-dcache hits  
+
+       6.780195996 seconds time elapsed
+
+      19.584086000 seconds user
+      17.250221000 seconds sys
+
+

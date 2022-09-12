@@ -1,0 +1,5 @@
+cc -fopenmp -O3 -ftree-vectorize -fopt-info-vec-missed  -march=native -DOPEN backprop.c -c
+cc -fopenmp -O3 -ftree-vectorize -fopt-info-vec-missed  -march=native -DOPEN facetrain.c -c
+cc -fopenmp -O3 -ftree-vectorize -fopt-info-vec-missed  -march=native -DOPEN imagenet.c -c
+cc -fopenmp -O3 -ftree-vectorize -fopt-info-vec-missed  -march=native -DOPEN backprop_kernel.c -c
+cc -fopenmp -O3 -ftree-vectorize -fopt-info-vec-missed  -march=native -DOPEN backprop.o facetrain.o imagenet.o backprop_kernel.o -o backprop -lm

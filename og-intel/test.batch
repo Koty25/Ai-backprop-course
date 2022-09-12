@@ -1,0 +1,17 @@
+#!/bin/bash
+#SBATCH --job-name=erad-2021
+#SBATCH --partition=tsubasa
+#SBATCH --output=%x_%j.out
+#SBATCH --error=%x_%j.err
+#SBATCH --time=5:00
+#SBATCH --reservation=fpmjunior_78
+
+echo "Executando em $SLURM_JOB_NODELIST"
+export OMP_NUM_THREADS=8
+make clean
+printf "\nCompilando\n"
+make
+
+printf "\nExecutando\n"
+perf stat -e LLC-loads,LLC-load-misses,L1-dcache-loads,L1-dcache-load-misses ./backprop 67108864
+

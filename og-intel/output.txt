@@ -1,0 +1,23 @@
+Random number generator seed: 7
+Reading '/scratch/workshop/2_26.nn'
+'/scratch/workshop/2_26.nn' contains a 67108864x0x16 network
+Reading input weights...Done
+Reading hidden weights...Done
+Input layer size : 67108864
+Starting training kernel
+Performing CPU computation
+Training done
+
+ Performance counter stats for './backprop 67108864':
+
+         3,922,487      LLC-loads                                                   
+         2,728,125      LLC-load-misses           #   69.55% of all LL-cache hits   
+    10,780,362,773      L1-dcache-loads                                             
+       373,058,364      L1-dcache-load-misses     #    3.46% of all L1-dcache hits  
+
+       8.451087709 seconds time elapsed
+
+       7.407199000 seconds user
+       2.332284000 seconds sys
+
+
